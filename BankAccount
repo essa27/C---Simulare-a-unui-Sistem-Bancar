@@ -1,0 +1,30 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+class BankAccount {
+private:
+    string owner;
+    double balance;
+public:
+    BankAccount(string owner, double initial_balance) {
+        this->owner = owner;
+        this->balance = initial_balance;
+    }
+    void deposit(double amount) {
+        balance += amount;
+    }
+    bool withdraw(double amount) {
+        if (amount > balance) return false;
+        balance -= amount;
+        return true;
+    }
+    void display() {
+        cout << "Titular: " << owner << " | Sold: " << balance << " RON\n";
+    }
+};
+
+int main() {
+    unordered_map<string, BankAccount> accounts;
+    return 0;
+}
